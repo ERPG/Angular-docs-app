@@ -19,6 +19,7 @@ export class InputComponent implements OnInit {
     @Input() type;
     @Input() placeholder;
     @Input() name;
+    @Input() disabled;
     constructor() {}
 
     ngOnInit() {}

@@ -13,27 +13,30 @@ import { Subject } from 'rxjs/internal/Subject';
 })
 export class DocsApiService {
     constructor(private http: HttpClient) {}
-
+    // private apiUrl = 'http://localhost:4200/api';
     documentsChanges = new Subject<Document[]>();
 
     private documents: Document[] = [
         new Document(
             'Main title',
             'this is simply test',
+            'Advance',
             '12/12/1986',
             'http://cdn-img.health.com/sites/default/files/styles/small_16_9/public/1493659062/tangy-coleslaw-bbq.jpg?itok=3T8GFBc_'
         ),
         new Document(
             'Main title',
             'how to make a salmon',
+            'Custom',
             '12/12/1986',
-            'http://images.media-allrecipes.com/images/61481.jpg'
+            'https://e-fisiomedic.com/wp-content/uploads/2013/11/default-placeholder-300x300.png'
         ),
         new Document(
             'Chicken Soup',
             'make the chicken and prepare the soup',
-            '12/12/1986',
-            'http://i.ndtvimg.com/i/2016-07/chicken-korma_625x350_71467713811.jpg'
+            'simple',
+            '',
+            'https://e-fisiomedic.com/wp-content/uploads/2013/11/default-placeholder-300x300.png'
         ),
     ];
 
@@ -42,9 +45,7 @@ export class DocsApiService {
         // const headers = new HttpHeaders();
         // headers.set('Content-Type', 'application/json; charset=utf-8');
         // headers.set('access-control-allow-origin', '*');
-        // return this.http.get('https://frontend-test.signaturit.com', {
-        //     headers,
-        // });
+        // return this.http.get<Document[]>(`${this.apiUrl}/all`);
     }
 
     getDocumentById(index: number) {

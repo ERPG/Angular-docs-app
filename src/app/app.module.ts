@@ -1,3 +1,4 @@
+import { DocsApiService } from './core/docs-api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,7 +12,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FeaturesModule } from 'src/app/features/features.module';
 import { AppComponent } from './app.component';
 
-import { InterceptorService } from './core/interceptor.service';
+// import { InterceptorService } from './core/interceptor.service';
+// import { BackendProvider } from './_helpers/backend';
 
 @NgModule({
     declarations: [AppComponent],
@@ -28,11 +30,13 @@ import { InterceptorService } from './core/interceptor.service';
         BrowserAnimationsModule,
     ],
     providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: InterceptorService,
-            multi: true,
-        },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     useClass: InterceptorService,
+        //     multi: true,
+        // },
+        // BackendProvider,
+        DocsApiService,
     ],
     bootstrap: [AppComponent],
 })

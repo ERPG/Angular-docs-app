@@ -14,6 +14,7 @@ export class MainListComponent implements OnInit, OnDestroy {
     public documentsForm: FormGroup;
     public documents: Document[];
     public subscription: Subscription;
+    public errorText: string;
 
     constructor(
         private formB: FormBuilder,
@@ -28,18 +29,45 @@ export class MainListComponent implements OnInit, OnDestroy {
             imagePath: [''],
         });
         this.getAllDocuments();
+        console.log(this.documentsForm);
     }
 
     getAllDocuments(): void {
         this.subscription = this.docService.documentsChanges.subscribe(
             (docs: any) => {
-                console.log('________');
-                console.log(docs);
                 this.documents = docs;
             }
         );
         this.documents = this.docService.getDocuments();
     }
+    addDocument(): void {
+        this.errorText = '';
+        let documentType: string;
+        const { title, text, date, imagePath } = this.documentsForm.value;
+        const values = { title, text, date, imagePath };
+        if (!date && !imagePath) {
+            documentType = 'Simple';
+        } else if (date && !imagePath) {
+            documentType = 'Custom';
+        } else if (date && imagePath) {
+            documentType = 'Advance';
+        } else if (!date && imagePath) {
+            this.errorText = 'You need to set Date first!..';
+            return;
+        }
+        const imagePlaceholder = imagePath
+            ? imagePath
+            : 'https://e-fisiomedic.com/wp-content/uploads/2013/11/default-placeholder-300x300.png';
+        const newDoc = new Document(
+            title,
+            text,
+            documentType,
+            date,
+            imagePlaceholder
+        );
+        this.docService.createDocument(newDoc);
+    }
+
     ngOnDestroy() {
         this.subscription.unsubscribe();
     }
