@@ -1,0 +1,44 @@
+// @import 'base/_reset.scss';
+// @import 'base/_variables.scss';
+// @import 'base/_breakpoints.scss';
+// @import 'base/_mixins.scss';
+// @import 'base/_typography.scss';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+li,
+label,
+a,
+b,
+strong {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+h1 {
+    font-size: 22px;
+}
+h2 {
+    font-size: 20px;
+}
+h3 {
+    font-size: 18px;
+}
+h4 {
+    font-size: 16px;
+}
+h5 {
+    font-size: 14px;
+}
+b,
+strong {
+    font-weight: 700;
+}

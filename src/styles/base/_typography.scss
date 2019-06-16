@@ -1,0 +1,41 @@
+$fontpath: '/assets/fonts/';
+// Open Sans LIGHT
+@font-face {
+    font-family: 'OpenSans';
+    src: url($fontpath+'OpenSans-Light-webfont.eot');
+    src: url($fontpath+'OpenSans-Light-webfont.eot?#iefix')
+            format('embedded-opentype'),
+        url($fontpath+'OpenSans-Light-webfont.woff2') format('woff2'),
+        url($fontpath+'OpenSans-Light-webfont.woff') format('woff'),
+        url($fontpath+'OpenSans-Light-webfont.ttf') format('truetype'),
+        url($fontpath+'OpenSans-Light-webfont.svg#open_sanslight') format('svg');
+    font-weight: 300;
+    font-style: normal;
+}
+// // Open Sans REGULAR
+@font-face {
+    font-family: 'OpenSans';
+    src: url($fontpath+'OpenSans-Regular-webfont.eot');
+    src: url($fontpath+'OpenSans-Regular-webfont.eot?#iefix')
+            format('embedded-opentype'),
+        url($fontpath+'OpenSans-Regular-webfont.woff2') format('woff2'),
+        url($fontpath+'OpenSans-Regular-webfont.woff') format('woff'),
+        url($fontpath+'OpenSans-Regular-webfont.ttf') format('truetype'),
+        url($fontpath+'OpenSans-Regular-webfont.svg#open_sansregular')
+            format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+// // Open Sans BOLD
+@font-face {
+    font-family: 'OpenSans';
+    src: url($fontpath+'OpenSans-Bold-webfont.eot');
+    src: url($fontpath+'OpenSans-Bold-webfont.eot?#iefix')
+            format('embedded-opentype'),
+        url($fontpath+'OpenSans-Bold-webfont.woff2') format('woff2'),
+        url($fontpath+'OpenSans-Bold-webfont.woff') format('woff'),
+        url($fontpath+'OpenSans-Bold-webfont.ttf') format('truetype'),
+        url($fontpath+'OpenSans-Bold-webfont.svg#open_sansbold') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}

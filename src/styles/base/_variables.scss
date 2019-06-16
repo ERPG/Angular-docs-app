@@ -1,0 +1,19 @@
+// GENERIC - colors
+$brand-color-primary: #f6c364 !default;
+$brand-color-primary-light: lighten($brand-color-primary, 20%) !default;
+$brand-color-primary-lighter: lighten($brand-color-primary, 65%) !default;
+$brand-color-secondary: #5db3e6 !default;
+$brand-color-secondary-light: lighten($brand-color-secondary, 20%);
+$brand-color-secondary-lighter: lighten($brand-color-secondary, 65%);
+$brand-color-cta: #5db3e6 !default;
+$color-warning: #cf5252 !default;
+$color-success: #61be49 !default;
+$color-white: #fff !default;
+$color-black: #24282b !default;
+$color-black-light: lighten($color-black, 20%) !default;
+
+// // Generic - Layout
+$height-form-elements: 30px;
+$font-size-main: 1.25em;
+$font-size-labels: 1.09em;
+$font-size-inputs: 0.7em;

@@ -1,0 +1,36 @@
+<div class="cd-detail">
+    <nav class="cd-detail__nav">
+        <div class="cd-detail__nav-left">
+            <a [routerLink]="['']"> Go to list </a>
+        </div>
+        <div class="cd-detail__nav-right">
+            <a *ngIf="id > 0" [routerLink]="['/detail', id - 1]">
+                <- Last document</a
+            >
+            <a
+                *ngIf="id < allDocuments.length - 1"
+                [routerLink]="['/detail', id + 1]"
+            >
+                Next document ->
+            </a>
+        </div>
+    </nav>
+    <div class="cd-detail__outer">
+        <h1 class="cd-detail__title">{{ document.title }}</h1>
+        <p class="cd-detail__text">{{ document.text }}</p>
+        <img [src]="document.imagePath" />
+        <div class="cd-detail__inner">
+            <div class="cd-detail__date">
+                <p class="cd-detail__date-text">{{ document.text }}</p>
+                <icon class="cd-detail__date-icon"></icon>
+            </div>
+            <app-button
+                [type]="'button'"
+                [disabled]="false"
+                [text]="'Delete'"
+                (click)="deleteDocument()"
+            >
+            </app-button>
+        </div>
+    </div>
+</div>
