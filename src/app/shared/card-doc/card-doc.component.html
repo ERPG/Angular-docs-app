@@ -6,8 +6,10 @@
                 alt="Card icon"
                 [src]="document.imagePath"
             />
-            <h5 class="cd-card__title">{{ document.title }}</h5>
-            <span class="cd-card__date">{{ document.date }}</span>
+            <div class="cd-card__inner-description">
+                <h5 class="cd-card__title">{{ document.title }}</h5>
+                <span class="cd-card__date">{{ document.date }}</span>
+            </div>
         </div>
         <div class="rl-card__inner">
             <a [routerLink]="['/detail', index]">

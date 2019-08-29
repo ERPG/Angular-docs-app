@@ -5,24 +5,36 @@
         </div>
         <div class="cd-detail__nav-right">
             <a *ngIf="id > 0" [routerLink]="['/detail', id - 1]">
-                <- Last document</a
+                <fa-icon [icon]="leftIcon" alt="Card icon"></fa-icon>
+                Previous</a
             >
             <a
-                *ngIf="id < allDocuments.length - 1"
+                *ngIf="id < documents.length - 1"
                 [routerLink]="['/detail', id + 1]"
             >
-                Next document ->
+                Next <fa-icon [icon]="rightIcon" alt="Card icon"></fa-icon>
             </a>
         </div>
     </nav>
     <div class="cd-detail__outer">
         <h1 class="cd-detail__title">{{ document.title }}</h1>
         <p class="cd-detail__text">{{ document.text }}</p>
-        <img [src]="document.imagePath" />
+        <div class="cd-detail__image-container">
+            <img class="cd-detail__image" [src]="document.imagePath" />
+        </div>
         <div class="cd-detail__inner">
             <div class="cd-detail__date">
-                <p class="cd-detail__date-text">{{ document.text }}</p>
-                <icon class="cd-detail__date-icon"></icon>
+                <input
+                    type="text"
+                    class="cd-detail__date-text"
+                    value="{{ document.date }}"
+                    readonly
+                />
+                <fa-icon
+                    class="cd-detail__icon"
+                    [icon]="faIcon"
+                    alt="Card icon"
+                ></fa-icon>
             </div>
             <app-button
                 [type]="'button'"

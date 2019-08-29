@@ -1,0 +1,73 @@
+<div class="cd-main-list">
+    <div class="cd-main-list__outer">
+        <form
+            class="cd-main-list__form"
+            [formGroup]="documentsForm"
+            (ngSubmit)="documentsForm.valid && addDocument()"
+            autocomplete="off"
+        >
+            <div class="cd-main-list__inner">
+                <div class="form-group">
+                    <app-label [text]="'Document title'"></app-label>
+                    <app-input
+                        [type]="'text'"
+                        [id]="'title'"
+                        [name]="'title'"
+                        [control]="'title'"
+                        [placeholder]="'title'"
+                    ></app-input>
+                </div>
+                <div class="form-group">
+                    <app-label [text]="'Document text'"></app-label>
+                    <app-input
+                        [type]="'text'"
+                        [id]="'text'"
+                        [name]="'text'"
+                        [control]="'text'"
+                        [placeholder]="'text'"
+                    ></app-input>
+                </div>
+                <div class="form-group">
+                    <app-label [text]="'Date'"></app-label>
+                    <app-input
+                        [type]="'date'"
+                        [id]="'date'"
+                        [name]="'date'"
+                        [control]="'date'"
+                        [placeholder]="'date'"
+                    ></app-input>
+                </div>
+                <div class="form-group">
+                    <app-label [text]="'Load image'"></app-label>
+                    <app-input
+                        [type]="'file'"
+                        [id]="'imagePath'"
+                        [name]="'image'"
+                        [control]="'imagePath'"
+                        [placeholder]="'image'"
+                        [disabled]="documentsForm.get('date').invalid"
+                    ></app-input>
+                </div>
+                <div class="form-group">
+                    <app-button
+                        [type]="'submit'"
+                        [disabled]="!documentsForm.valid"
+                        [text]="'Create Document'"
+                    >
+                    </app-button>
+                </div>
+                <p>{{ errorText }}</p>
+            </div>
+        </form>
+    </div>
+    <div class="cd-main-list__list">
+        <div class="cd-main-list__outer">
+            <!-- create dinamyc card components -->
+            <app-card-doc
+                *ngFor="let doc of documents; let i = index"
+                [document]="doc"
+                [index]="i"
+            ></app-card-doc>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,6 @@
+{
+    "/documents": {
+        "target": "https://frontend-test.signaturit.com",
+        "secure": false
+    }
+}

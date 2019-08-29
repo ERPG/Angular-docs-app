@@ -1,8 +1,15 @@
-// @import 'base/_reset.scss';
-// @import 'base/_variables.scss';
-// @import 'base/_breakpoints.scss';
-// @import 'base/_mixins.scss';
-// @import 'base/_typography.scss';
+// ====== BASE ======= //
+@import 'base/_reset.scss';
+@import 'base/_typography.scss';
+@import 'base/_breakpoints.scss';
+
+// ====== ABSTRACTS ======= //
+@import 'abstracts/_variables.scss';
+@import 'abstracts/_mixins.scss';
+
+// ====== COMPONENTS ======= //
+@import 'components/_inputs.scss';
+@import 'components/_labels.scss';
 
 h1,
 h2,

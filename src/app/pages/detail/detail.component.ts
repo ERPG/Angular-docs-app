@@ -1,7 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Document } from './../../core/models/doc-model';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+import { Document } from '../../core/models/doc-model';
 import { DocsApiService } from 'src/app/core/docs-api.service';
+import {
+    faArrowAltCircleLeft,
+    faArrowAltCircleRight,
+    faCalendar,
+} from '@fortawesome/free-regular-svg-icons';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
     selector: 'app-detail',
@@ -10,8 +16,11 @@ import { DocsApiService } from 'src/app/core/docs-api.service';
 })
 export class DetailComponent implements OnInit {
     public id: number;
+    public documents: any;
     public document: Document;
-    public allDocuments: Document[];
+    public faIcon = faCalendar;
+    public leftIcon = faArrowAltCircleLeft;
+    public rightIcon = faArrowAltCircleRight;
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -19,23 +28,23 @@ export class DetailComponent implements OnInit {
     ) {}
 
     ngOnInit() {
-        this.allDocuments = this.getDocuments();
         this.getDocumentDetail();
+        this.getDocuments();
     }
 
     getDocumentDetail() {
         this.route.params.subscribe((params: Params) => {
-            this.id = +params['id'];
+            this.id = +params.id;
             this.document = this.docService.getDocumentById(this.id);
         });
     }
 
     getDocuments() {
-        return this.docService.getDocuments();
+        this.documents = this.docService.getDocuments();
     }
 
     deleteDocument() {
-        this.docService.deleteDocument(this.id);
-        this.router.navigate(['']);
+        // this.docService.deleteDocument(this.id);
+        // this.router.navigate(['']);
     }
 }

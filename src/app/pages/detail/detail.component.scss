@@ -1,0 +1,68 @@
+@import 'main.scss';
+
+.cd-detail {
+    margin: 0 auto;
+    max-width: 70%;
+    @include sm {
+        max-width: 80%;
+    }
+    &__nav {
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        @include sm {
+            margin-top: 80px;
+        }
+        a,
+        fa-icon {
+            color: $color-primary;
+        }
+    }
+    &__nav-right {
+        a {
+            margin-right: 10px;
+        }
+    }
+    &__outer {
+        margin-top: 50px;
+    }
+    &__text {
+        margin-top: 50px;
+    }
+    &__image-container {
+        max-width: 150px;
+        margin: 0 auto;
+    }
+    &__image {
+        display: block;
+        margin: 0 auto;
+        margin-top: 50px;
+        width: 100%;
+        height: auto;
+    }
+    &__inner {
+        display: flex;
+        margin-top: 50px;
+    }
+    &__date-text {
+        width: 80px;
+        padding: 10px;
+        text-align: center;
+        @include sm {
+            border: 1px solid $color-borders;
+            width: 70px;
+            padding: 6px;
+        }
+    }
+    &__icon {
+        font-size: 38px;
+        vertical-align: middle;
+        margin-left: 6px;
+        @include sm {
+            font-size: 30px;
+        }
+    }
+    app-button {
+        margin-left: auto;
+    }
+}

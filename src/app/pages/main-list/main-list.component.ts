@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 })
 export class MainListComponent implements OnInit, OnDestroy {
     public documentsForm: FormGroup;
-    public documents: Document[];
+    public documents: any;
     public subscription: Subscription;
     public errorText: string;
 
@@ -22,24 +22,37 @@ export class MainListComponent implements OnInit, OnDestroy {
     ) {}
 
     ngOnInit() {
-        this.documentsForm = this.formB.group({
-            title: ['', [Validators.required]],
-            text: ['', Validators.required],
-            date: [''],
-            imagePath: [''],
-        });
+        this.documentsForm = this.formB.group(
+            {
+                title: ['', [Validators.required]],
+                text: ['', Validators.required],
+                date: [''],
+                imagePath: [''],
+            },
+            {
+                validator: formControl => {
+                    const date = formControl.controls.date;
+                    const imagePath = formControl.controls.imagePath;
+                    if (imagePath.value.length > 0) {
+                        if (date.value.length === 0) {
+                            return { invalid: true };
+                        }
+                    }
+                },
+            }
+        );
         this.getAllDocuments();
-        console.log(this.documentsForm);
     }
 
     getAllDocuments(): void {
-        this.subscription = this.docService.documentsChanges.subscribe(
-            (docs: any) => {
-                this.documents = docs;
-            }
-        );
+        // this.subscription = this.docService.documentsChanges.subscribe(
+        //     (docs: any) => {
+        //         this.documents = docs;
+        //     }
+        // );
         this.documents = this.docService.getDocuments();
     }
+
     addDocument(): void {
         this.errorText = '';
         let documentType: string;
@@ -69,6 +82,6 @@ export class MainListComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy() {
-        this.subscription.unsubscribe();
+        // this.subscription.unsubscribe();
     }
 }
