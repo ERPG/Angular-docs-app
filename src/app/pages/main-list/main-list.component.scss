@@ -8,6 +8,11 @@
     &__outer {
         display: block;
         margin: 10px;
+        max-width: 70%;
+        margin: 0 auto;
+        @include sm {
+            max-width: 90%;
+        }
     }
     &__form {
         display: flex;
@@ -34,5 +39,33 @@
         flex: 1 1 100%;
         justify-content: center;
         margin: 20px 0;
+    }
+    &__select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearence: none;
+        direction: ltr;
+        margin-left: auto;
+        background: #fafafa url($select-arrow);
+        background-repeat: no-repeat;
+        background-size: 260px 28px;
+        padding-left: 10px;
+        @include sm {
+            margin-top: 20px;
+        }
+        select:focus {
+            outline: none;
+        }
+    }
+}
+
+::ng-deep pagination-controls {
+    .ngx-pagination {
+        text-align: center;
+        margin: 20px 0;
+        margin-bottom: 50px;
+        .current {
+            background: $color-primary-light;
+        }
     }
 }

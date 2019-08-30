@@ -62,12 +62,35 @@
     </div>
     <div class="cd-main-list__list">
         <div class="cd-main-list__outer">
+            <select
+                dir="rtl"
+                class="cd-main-list__select cd-input"
+                name="docType"
+                [(ngModel)]="docType"
+            >
+                <option value="" selected>All</option>
+                <option value="Simple">Simple</option>
+                <option value="Custom">Custom</option>
+                <option value="Advance">Advance</option>
+            </select>
+        </div>
+        <div class="cd-main-list__outer">
             <!-- create dinamyc card components -->
-            <app-card-doc
-                *ngFor="let doc of documents; let i = index"
+            {{ documents }}
+            <!-- <app-card-doc
+                *ngFor="
+                    let doc of documents
+                        | paginate
+                            : { itemsPerPage: 3, currentPage: actualPage }
+                        | filter: docType;
+                    let i = index
+                "
                 [document]="doc"
                 [index]="i"
-            ></app-card-doc>
+            ></app-card-doc> -->
+            <pagination-controls
+                (pageChange)="actualPage = $event"
+            ></pagination-controls>
         </div>
     </div>
 </div>

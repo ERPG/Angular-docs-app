@@ -3,18 +3,12 @@
 .cd-card {
     margin: 0 auto;
     padding: 15px;
-    max-width: 70%;
     border: 1px solid $color-borders;
     margin-top: 20px;
 
     @include sm {
         max-width: 85%;
     }
-    // &:hover {
-    //     -moz-box-shadow: 2px 2px 4px 5px $color-borders;
-    //     -webkit-box-shadow: 2px 2px 4px 5px $color-borders;
-    //     box-shadow: 2px 2px 4px 5px $color-borders;
-    // }
     &__outer {
         display: flex;
         justify-content: space-between;

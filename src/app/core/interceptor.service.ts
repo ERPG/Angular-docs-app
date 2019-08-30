@@ -6,15 +6,16 @@ import {
     HttpHeaders,
 } from '@angular/common/http';
 import { DocsApiService } from 'src/app/core/docs-api.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class InterceptorService implements HttpInterceptor {
-    private token = '161da8d7-b7b8-4c84-858a-6b216577b4c3';
+    private token = '3a11400c-3101-494f-8cd5-c6dfb4fe4025';
     constructor(private docService: DocsApiService) {}
 
-    intercept(request: HttpRequest<any>, next: HttpHandler): any {
+    intercept(request: HttpRequest<any>, next: HttpHandler): Observable<any> {
         if (this.token) {
             request = request.clone({
                 setHeaders: {

@@ -6,6 +6,7 @@ import { DocsApiService } from './docs-api.service';
 @NgModule({
     declarations: [],
     imports: [CommonModule, HttpClientModule],
-    exports: [DocsApiService],
+    providers: [DocsApiService],
+    exports: [],
 })
 export class CoreModule {}

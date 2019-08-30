@@ -1,7 +1,6 @@
 // GENERIC - colors
 $color-primary: #226fbe !default;
 $color-primary-light: lighten($color-primary, 20%) !default;
-$color-primary-lighter: lighten($color-primary, 65%) !default;
 $color-secondary: #f6c364 !default;
 $color-secondary-light: lighten($color-secondary, 20%);
 $color-secondary-lighter: lighten($color-secondary, 65%);
@@ -17,3 +16,7 @@ $height-form-elements: 30px;
 $font-size-main: 1.25em;
 $font-size-labels: 1.09em;
 $font-size-inputs: 0.7em;
+
+// Icons URL
+
+$select-arrow: 'src/assets/icons/arrow-select.svg';

@@ -7,15 +7,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DocsApiService } from '../core/docs-api.service';
 import { PagesRoutingModule } from 'src/app/pages/pages-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
     declarations: [MainListComponent, DetailComponent],
     imports: [
         CommonModule,
+        HttpClientModule,
         PagesRoutingModule,
         SharedModule,
         FormsModule,
         ReactiveFormsModule,
         FontAwesomeModule,
+        NgxPaginationModule,
     ],
     providers: [DocsApiService],
 })

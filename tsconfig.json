@@ -13,9 +13,9 @@
         "target": "es2015",
         "typeRoots": ["node_modules/@types"],
         "lib": ["es2018", "dom"]
-    },
-    "angularCompilerOptions": {
-        "enableIvy": true,
-        "allowEmptyCodegenFiles": true
     }
+    // "angularCompilerOptions": {
+    //     "enableIvy": true,
+    //     "allowEmptyCodegenFiles": true
+    // }
 }

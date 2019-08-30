@@ -1,3 +1,4 @@
+import { ModalService } from './services/modal.service';
 import { DocsApiService } from './core/docs-api.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -35,13 +36,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         }),
     ],
     providers: [
-        {
-            provide: HTTP_INTERCEPTORS,
-            useClass: InterceptorService,
-            multi: true,
-        },
+        // {
+        //     provide: HTTP_INTERCEPTORS,
+        //     useClass: InterceptorService,
+        //     multi: true,
+        // },
         DocumentsService,
         DocsApiService,
+        ModalService,
     ],
     bootstrap: [AppComponent],
 })

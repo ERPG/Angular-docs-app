@@ -43,6 +43,7 @@
     &__inner {
         display: flex;
         margin-top: 50px;
+        margin-bottom: 50px;
     }
     &__date-text {
         width: 80px;
@@ -64,5 +65,16 @@
     }
     app-button {
         margin-left: auto;
+    }
+}
+
+app-modal {
+    display: none;
+}
+
+::ng-deep app-button {
+    button {
+        margin-top: 10px;
+        margin-left: 5px;
     }
 }

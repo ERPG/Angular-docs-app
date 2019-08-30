@@ -40,9 +40,29 @@
                 [type]="'button'"
                 [disabled]="false"
                 [text]="'Delete'"
-                (click)="deleteDocument()"
+                (click)="openModal('confirmation-modal')"
             >
             </app-button>
         </div>
     </div>
 </div>
+
+<app-modal id="confirmation-modal">
+    <h3>Are you shure!?</h3>
+    <app-button
+        [type]="'button'"
+        [disabled]="false"
+        [text]="'Yes'"
+        (click)="openModal('confirmation-modal')"
+        [class]="'warning'"
+    >
+    </app-button>
+    <app-button
+        [type]="'button'"
+        [disabled]="false"
+        [text]="'No'"
+        (click)="closeModal('confirmation-modal')"
+        [class]="'default'"
+        >Close</app-button
+    >
+</app-modal>
