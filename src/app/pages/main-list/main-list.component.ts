@@ -17,6 +17,7 @@ export class MainListComponent implements OnInit {
   public errorText: string;
   public actualPage = 1;
   public docType: string;
+  public pageSize = 3;
 
   constructor(private formB: FormBuilder, private docService: DocsApiService) {}
 
@@ -61,6 +62,7 @@ export class MainListComponent implements OnInit {
         data => {
           this.onClear();
           this.imageUrl = '';
+          this.getAllDocuments();
           console.log('SUCCESS');
         },
         error => {

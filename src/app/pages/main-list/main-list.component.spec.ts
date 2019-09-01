@@ -33,6 +33,8 @@ class InputComponent {
 class CardDocComponent {
   @Input() document: Document;
   @Input() index: number;
+  @Input() pageSize: number;
+  @Input() actualPage;
 }
 
 describe('MainListComponent', () => {

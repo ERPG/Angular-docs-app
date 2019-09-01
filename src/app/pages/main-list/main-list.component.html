@@ -72,11 +72,13 @@
       <!-- create dinamyc card components -->
       <app-card-doc
         *ngFor="
-          let doc of documents | paginate: { itemsPerPage: 3, currentPage: actualPage } | filter: docType;
+          let doc of documents | paginate: { itemsPerPage: pageSize, currentPage: actualPage } | filter: docType;
           let i = index
         "
         [document]="doc"
         [index]="i"
+        [pageSize]="pageSize"
+        [actualPage]="actualPage"
       ></app-card-doc>
       <pagination-controls
         *ngIf="documents && documents.length"

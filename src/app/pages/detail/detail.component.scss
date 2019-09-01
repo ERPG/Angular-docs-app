@@ -70,6 +70,9 @@
 
 app-modal {
   display: none;
+  h3 {
+    margin-bottom: 10px;
+  }
 }
 
 ::ng-deep app-button {

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { DocsApiService } from 'src/app/core/docs-api.service';
 import { faArrowAltCircleLeft, faArrowAltCircleRight, faCalendar } from '@fortawesome/free-regular-svg-icons';
@@ -16,6 +16,7 @@ export class DetailComponent implements OnInit, OnDestroy {
   public faIcon = faCalendar;
   public leftIcon = faArrowAltCircleLeft;
   public rightIcon = faArrowAltCircleRight;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,

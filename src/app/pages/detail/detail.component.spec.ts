@@ -59,7 +59,7 @@ describe('DetailComponent', () => {
     const service = TestBed.get(DocsApiService);
     // Create Spy
     const spy = spyOn(service, 'deleteDocument').and.callThrough();
-    component.deleteDocument(1);
+    component.deleteDocument();
 
     fixture.detectChanges();
 
