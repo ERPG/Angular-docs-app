@@ -1,7 +1,6 @@
 ![Angular](https://cdn-images-1.medium.com/max/1200/1*nbJ41jD1-r2Oe6FsLjKaOg.png) ![NodeJS](https://codeandunicorns.com/wp-content/uploads/2017/11/node-express.png)
-![MongoDB](https://cdn.iconverticons.com/files/png/4eae13c7686cb54d_256x256.png)
 
-#Documents-manager App
+# Documents-manager App
 
 Documents CRUD application to manages types of documents.
 
