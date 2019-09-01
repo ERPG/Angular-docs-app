@@ -1,1 +1,6 @@
 @import 'main.scss';
+.cd-input {
+  @include sm {
+    width: 95%;
+  }
+}

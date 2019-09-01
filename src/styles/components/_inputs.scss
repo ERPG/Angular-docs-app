@@ -1,16 +1,17 @@
 @import '../abstracts/mixins';
 .cd-input {
-    display: block;
-    width: 150px;
-    padding: 8px 5px;
-    @include sm {
-        outline: 0;
-        border-width: 0 0 2px;
-    }
+  display: block;
+  width: 150px;
+  padding: 8px 5px;
+  background: $color-white;
+  @include sm {
+    outline: 0;
+    border-width: 0 0 2px;
+  }
 }
 
 .cd-input:focus {
-    @include sm {
-        border-color: #c0c0c0;
-    }
+  @include sm {
+    border-color: #c0c0c0;
+  }
 }

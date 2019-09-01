@@ -21,7 +21,12 @@
     </div>
     <div class="cd-detail__inner">
       <div class="cd-detail__date">
-        <input type="text" class="cd-detail__date-text" value="{{ document && document.date }}" readonly />
+        <input
+          type="text"
+          class="cd-detail__date-text"
+          value="{{ document && document.date ? document.date : 'No date!' }}"
+          readonly
+        />
         <fa-icon class="cd-detail__icon" [icon]="faIcon" alt="Card icon"></fa-icon>
       </div>
       <app-button [type]="'button'" [disabled]="false" [text]="'Delete'" (click)="openModal('confirmation-modal')">

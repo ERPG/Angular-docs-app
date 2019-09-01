@@ -31,14 +31,14 @@ export class DetailComponent implements OnInit, OnDestroy {
     this.docService.getDocuments().subscribe(data => {
       this.documents = data;
       this.route.params.subscribe((params: Params) => {
-        console.log(params.id);
         this.id = +params.id;
         this.document = this.documents[this.id];
       });
     });
   }
   // Delete a Document
-  deleteDocument(id: number) {
+  deleteDocument() {
+    const id = this.document._id;
     this.docService.deleteDocument(id).subscribe(
       data => {
         console.log('success');

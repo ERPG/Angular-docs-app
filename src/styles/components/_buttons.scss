@@ -1,32 +1,33 @@
 .cd-button {
-    cursor: pointer;
-    padding: 5px 28px;
-    display: inline-block;
-    font-weight: 700;
-    background: $color-primary;
+  cursor: pointer;
+  padding: 5px 28px;
+  display: inline-block;
+  font-weight: 700;
+  background: $color-primary;
+  border-radius: 60px;
+  color: $color-white;
+  border: none;
+  &:hover {
+    background: $color-white;
+    border: 2px solid $color-primary;
     border-radius: 60px;
-    color: $color-white;
-    &:hover {
-        background: $color-white;
-        border: 2px solid $color-primary;
-        border-radius: 60px;
-        color: $color-primary;
-    }
+    color: $color-primary;
+  }
 }
 
 .warning {
-    background: $color-warning;
-    cursor: pointer;
+  background: $color-warning;
+  cursor: pointer;
 }
 .warning:hover {
-    border: 1px solid $color-warning;
-    color: $color-warning;
+  border: 1px solid $color-warning;
+  color: $color-warning;
 }
 .default {
-    background: $color-borders;
-    cursor: pointer;
+  background: $color-borders;
+  cursor: pointer;
 }
 .default:hover {
-    border: 1px solid $color-borders;
-    color: $color-borders;
+  border: 1px solid $color-borders;
+  color: $color-borders;
 }

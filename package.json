@@ -6,8 +6,8 @@
     "build-server": "tsc && nodemon dist/out-tsc/server.js",
     "start": "ng serve",
     "start-app": "npm run build-server & npm run start",
-    "build": "ng build",
-    "test": "npm run build-server & ng test",
+    "build": "ng build --prod --aot",
+    "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

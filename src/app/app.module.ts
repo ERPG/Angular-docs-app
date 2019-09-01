@@ -13,7 +13,7 @@ import { PagesModule } from 'src/app/pages/pages.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [AppComponent],
