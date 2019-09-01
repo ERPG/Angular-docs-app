@@ -12,10 +12,6 @@ import { Observable } from 'rxjs';
 })
 export class DocsApiService {
   constructor(private http: HttpClient) {}
-  // private apiUrl =
-  //     'https://frontend-test.signaturit.com' +
-  //     '/documents?token=' +
-  //     this.token;
   private apiUrl = 'http://localhost:3000/api';
   documentsChanges = new Subject<Document[]>();
 

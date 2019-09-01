@@ -53,21 +53,18 @@ export class MainListComponent implements OnInit {
   addDocument(): void {
     this.errorText = '';
     const { title, text, date, imagePath } = this.documentsForm.value;
-    const values = { title, text, date, imagePath };
     const documentType = this.setDocumentType(date, imagePath);
     const image = this.imageUrl ? this.imageUrl : this.imagePlaceholder;
     if (documentType) {
       const newDoc = new Document(title, text, documentType, date, image);
       this.docService.createDocument(newDoc).subscribe(
         data => {
-          this.documentsForm.reset();
+          this.onClear();
           this.imageUrl = '';
-          this.errorText = '';
           console.log('SUCCESS');
         },
         error => {
           console.log('ERROR');
-          this.errorText = '';
         }
       );
     }
@@ -95,5 +92,9 @@ export class MainListComponent implements OnInit {
       this.imageUrl = e.target.result;
     };
     reader.readAsDataURL(this.selectedFile);
+  }
+
+  onClear() {
+    this.documentsForm.reset();
   }
 }

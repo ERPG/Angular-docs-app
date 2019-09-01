@@ -1,4 +1,4 @@
-<div class="cd-card">
+<div *ngIf="document" class="cd-card">
   <div class="cd-card__outer">
     <div class="cd-card__inner">
       <img class="cd-card__image" alt="Card icon" [src]="document.imagePath" />
@@ -12,8 +12,6 @@
       <a [routerLink]="['/detail', document._id]">
         <app-button [type]="'button'" [disabled]="false" [text]="'Detail'"></app-button>
       </a>
-      <!-- <p class="rl-card__text">{{ document.text }}</p> -->
-      <!-- <span class="rl-card__text">{{ document.date }}</span> -->
     </div>
   </div>
 </div>

@@ -13,9 +13,11 @@ export class CardDocComponent implements OnInit {
   @Input() index: number;
   public imageUrl: SafeUrl;
 
-  constructor(private route: ActivatedRoute, private router: Router, private domSanitizer: DomSanitizer) {}
+  constructor(private domSanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.imageUrl = this.domSanitizer.bypassSecurityTrustUrl(this.document.imagePath);
+    if (this.document) {
+      this.imageUrl = this.domSanitizer.bypassSecurityTrustUrl(this.document.imagePath);
+    }
   }
 }

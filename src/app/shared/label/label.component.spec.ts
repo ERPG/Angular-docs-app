@@ -8,9 +8,8 @@ describe('LabelComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LabelComponent ]
-    })
-    .compileComponents();
+      declarations: [LabelComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +20,12 @@ describe('LabelComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('Label should have a value', () => {
+    component.text = 'custom label';
+    const elem = fixture.debugElement.nativeElement.querySelector('.cd-label');
+    fixture.detectChanges();
+    expect(elem.innerText).toBe('custom label');
   });
 });

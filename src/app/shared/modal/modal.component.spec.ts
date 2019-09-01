@@ -8,9 +8,8 @@ describe('ModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
-    })
-    .compileComponents();
+      declarations: [ModalComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +20,19 @@ describe('ModalComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('modal should exists after open method call', () => {
+    component.open();
+    fixture.detectChanges();
+    const elem = fixture.debugElement.nativeElement.querySelector('.cd-modal__open');
+    expect(elem).toBeDefined();
+  });
+
+  it('should create', () => {
+    component.close();
+    fixture.detectChanges();
+    const elem = fixture.debugElement.nativeElement.querySelector('.cd-modal__open');
+    expect(elem).toBeNull();
   });
 });

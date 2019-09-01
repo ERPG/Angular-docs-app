@@ -8,9 +8,8 @@ describe('ButtonComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [ButtonComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +20,11 @@ describe('ButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+  it('Button should have a value', () => {
+    component.text = 'custom text';
+    const elem = fixture.debugElement.nativeElement.querySelector('.cd-button');
+    fixture.detectChanges();
+    expect(elem.innerText).toBe('custom text');
   });
 });

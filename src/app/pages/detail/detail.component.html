@@ -13,7 +13,7 @@
       </a>
     </div>
   </nav>
-  <div class="cd-detail__outer">
+  <div *ngIf="document" class="cd-detail__outer">
     <h1 class="cd-detail__title">{{ document.title }}</h1>
     <p class="cd-detail__text">{{ document.text }}</p>
     <div class="cd-detail__image-container">
