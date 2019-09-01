@@ -38,17 +38,19 @@
           ></app-input>
         </div>
         <div class="form-group">
-          <img [src]="imageUrl || imagePlaceholder" style="width: 50px; height: 50px; margin: 0 auto;" />
-          <app-label [text]="'Image'"></app-label>
-          <app-input
-            [type]="'file'"
-            [id]="'imagePath'"
-            [name]="'imagePath'"
-            [control]="'imagePath'"
-            [placeholder]="'image URL'"
-            [disabled]="documentsForm.get('date').invalid"
-            (change)="onFileSelected($event)"
-          ></app-input>
+          <img [src]="imageUrl || imagePlaceholder" style="width: 50px; height: 50px; margin-left: 8px;" />
+          <div class="cd-main-list__form-group-inner">
+            <app-label [text]="'Image'"></app-label>
+            <app-input
+              [type]="'file'"
+              [id]="'imagePath'"
+              [name]="'imagePath'"
+              [control]="'imagePath'"
+              [placeholder]="'image URL'"
+              [disabled]="documentsForm.get('date').invalid"
+              (change)="onFileSelected($event)"
+            ></app-input>
+          </div>
         </div>
         <div class="form-group">
           <app-button [type]="'submit'" [disabled]="!documentsForm.valid" [text]="'Create Document'"> </app-button>
