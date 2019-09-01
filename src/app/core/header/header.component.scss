@@ -1,0 +1,21 @@
+@import 'main.scss';
+
+.cd-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: $color-primary;
+  padding: 5px 10px;
+  &__outer {
+    height: 80px;
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    color: $color-white;
+  }
+  &__logo {
+    width: 5.5em;
+    height: 100%;
+  }
+}

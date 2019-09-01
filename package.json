@@ -4,9 +4,10 @@
   "scripts": {
     "ng": "ng",
     "build-server": "tsc && nodemon dist/out-tsc/server.js",
-    "start": "npm run build-server && ng serve",
+    "start": "ng serve",
+    "start-app": "npm run build-server & npm run start",
     "build": "ng build",
-    "test": "npm run build-server && ng test",
+    "test": "npm run build-server & ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

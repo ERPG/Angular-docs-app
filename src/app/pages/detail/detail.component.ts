@@ -26,12 +26,12 @@ export class DetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.getDocuments();
   }
-
   // Get all Documents
   getDocuments() {
     this.docService.getDocuments().subscribe(data => {
       this.documents = data;
       this.route.params.subscribe((params: Params) => {
+        console.log(params.id);
         this.id = +params.id;
         this.document = this.documents[this.id];
       });
@@ -39,7 +39,6 @@ export class DetailComponent implements OnInit, OnDestroy {
   }
   // Delete a Document
   deleteDocument(id: number) {
-    console.log(this.document);
     this.docService.deleteDocument(id).subscribe(
       data => {
         console.log('success');
