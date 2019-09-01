@@ -48,16 +48,16 @@ After that, to compile server files just
 tsc
 ```
 
-The compile server file will be at dist/out-tsc on index.js file.
+The compile server file will be at dist/out-tsc on server.js file.
 
 ```
-node index.js
+node server.js
 ```
 
 or if you have nodemon installed
 
 ```
-nodemon index.js
+nodemon server.js
 ```
 
 To check if server is running, navigate to `http://localhost:3000/`
