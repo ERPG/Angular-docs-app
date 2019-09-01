@@ -1,68 +1,45 @@
 <div class="cd-detail">
-    <nav class="cd-detail__nav">
-        <div class="cd-detail__nav-left">
-            <a [routerLink]="['']"> Go to list </a>
-        </div>
-        <div class="cd-detail__nav-right">
-            <a *ngIf="id > 0" [routerLink]="['/detail', id - 1]">
-                <fa-icon [icon]="leftIcon" alt="Card icon"></fa-icon>
-                Previous</a
-            >
-            <a
-                *ngIf="id < documents.length - 1"
-                [routerLink]="['/detail', id + 1]"
-            >
-                Next <fa-icon [icon]="rightIcon" alt="Card icon"></fa-icon>
-            </a>
-        </div>
-    </nav>
-    <div class="cd-detail__outer">
-        <h1 class="cd-detail__title">{{ document.title }}</h1>
-        <p class="cd-detail__text">{{ document.text }}</p>
-        <div class="cd-detail__image-container">
-            <img class="cd-detail__image" [src]="document.imagePath" />
-        </div>
-        <div class="cd-detail__inner">
-            <div class="cd-detail__date">
-                <input
-                    type="text"
-                    class="cd-detail__date-text"
-                    value="{{ document.date }}"
-                    readonly
-                />
-                <fa-icon
-                    class="cd-detail__icon"
-                    [icon]="faIcon"
-                    alt="Card icon"
-                ></fa-icon>
-            </div>
-            <app-button
-                [type]="'button'"
-                [disabled]="false"
-                [text]="'Delete'"
-                (click)="openModal('confirmation-modal')"
-            >
-            </app-button>
-        </div>
+  <nav class="cd-detail__nav">
+    <div class="cd-detail__nav-left">
+      <a [routerLink]="['']"> Go to list </a>
     </div>
+    <div class="cd-detail__nav-right">
+      <a *ngIf="id > 0" [routerLink]="['/detail', id - 1]">
+        <fa-icon [icon]="leftIcon" alt="Card icon"></fa-icon>
+        Previous</a
+      >
+      <a *ngIf="documents && id < documents.length - 1" [routerLink]="['/detail', id + 1]">
+        Next <fa-icon [icon]="rightIcon" alt="Card icon"></fa-icon>
+      </a>
+    </div>
+  </nav>
+  <div class="cd-detail__outer">
+    <h1 class="cd-detail__title">{{ document.title }}</h1>
+    <p class="cd-detail__text">{{ document.text }}</p>
+    <div class="cd-detail__image-container">
+      <img class="cd-detail__image" [src]="(document && document.imagePath) || ''" />
+    </div>
+    <div class="cd-detail__inner">
+      <div class="cd-detail__date">
+        <input type="text" class="cd-detail__date-text" value="{{ document && document.date }}" readonly />
+        <fa-icon class="cd-detail__icon" [icon]="faIcon" alt="Card icon"></fa-icon>
+      </div>
+      <app-button [type]="'button'" [disabled]="false" [text]="'Delete'" (click)="openModal('confirmation-modal')">
+      </app-button>
+    </div>
+  </div>
 </div>
 
 <app-modal id="confirmation-modal">
-    <h3>Are you shure!?</h3>
-    <app-button
-        [type]="'button'"
-        [disabled]="false"
-        [text]="'Yes'"
-        (click)="openModal('confirmation-modal')"
-        [class]="'warning'"
-    >
-    </app-button>
-    <app-button
-        [type]="'button'"
-        [disabled]="false"
-        [text]="'No'"
-        (click)="closeModal('confirmation-modal')"
-        [class]="'default'"
-        >Close</app-button
-    >
+  <h3>Are you shure!?</h3>
+  <app-button [type]="'button'" [disabled]="false" [text]="'Yes'" (click)="deleteDocument()" [class]="'warning'">
+  </app-button>
+  <app-button
+    [type]="'button'"
+    [disabled]="false"
+    [text]="'No'"
+    (click)="closeModal('confirmation-modal')"
+    [class]="'default'"
+    >Close</app-button
+  >
 </app-modal>

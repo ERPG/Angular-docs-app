@@ -4,14 +4,14 @@ import { IDocument } from '../types/types';
 const collection = 'documents';
 
 const DocsSchema: mongoose.Schema = new mongoose.Schema(
-    {
-        title: { type: String, require: true },
-        text: { type: String, require: true },
-        date: { type: String },
-        type: { type: String, require: true },
-        image: { type: String },
-    },
-    { collection }
+  {
+    title: { type: String, require: true },
+    text: { type: String, require: true },
+    date: { type: String },
+    type: { type: String, require: true },
+    imagePath: { type: String, require: true }
+  },
+  { collection }
 );
 
 // Export the model and return your IUser interface

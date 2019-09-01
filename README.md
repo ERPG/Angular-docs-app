@@ -1,26 +1,92 @@
-# CrudDocuments
+![Angular](https://cdn-images-1.medium.com/max/1200/1*nbJ41jD1-r2Oe6FsLjKaOg.png) ![NodeJS](https://codeandunicorns.com/wp-content/uploads/2017/11/node-express.png)
+![MongoDB](https://cdn.iconverticons.com/files/png/4eae13c7686cb54d_256x256.png)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+#Documents-manager App
 
-## Development server
+Documents CRUD application to manages types of documents.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+This steps will get you through the setup process of installing and usage of the project.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Project installation guide
 
-## Build
+To ensure the best compatibility you may need node version of `v10.16`. We would recommend to use NVM (Node Version Manager) for this. You can find it [Here](https://github.com/creationix/nvm).
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Installation
 
-## Running unit tests
+```
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+then you can run
 
-## Running end-to-end tests
+```
+nvm install `version`
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+After set node version run
+
+```
+yarn install
+```
+
+After installing all packages, since you need the api for the requests, we need to launch the node server that receive this requests.
+
+The server use a **MongoDB** database, I suggest go to the [Documentation](https://docs.mongodb.com/manual/installation/) and setup this before launch the server.
+
+To launch node server, first compile your typescript files, make shure you have typescript installed globally.
+
+To install Typescript global you can do
+
+```
+yarn add --global typescript
+```
+
+After that, to compile server files just
+
+```
+tsc
+```
+
+The compile server file will be at dist/out-tsc on index.js file.
+
+```
+node index.js
+```
+
+or if you have nodemon installed
+
+```
+nodemon index.js
+```
+
+To check if server is running, navigate to `http://localhost:3000/`
+
+Now, To launch Angular server
+
+```
+yarn run start
+```
+
+And Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+That's it, you are good to go!
+
+## Running the tests
+
+To run the tests
+
+```
+yarn run test
+```
+
+## Built With
+
+- [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0. - The web framework used
+- [Express](https://expressjs.com/es/) - node Infraestructure
+- [Mongoose](https://mongoosejs.com/docs/) - Schema base solution
+- [MongoDB](https://www.mongodb.com/) - DataBase
 
 ## Further help
 

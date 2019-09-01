@@ -16,8 +16,8 @@ app.use(express.static(pathPublic));
 
 console.log(`Serving static files from: ${pathPublic}`);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({ limit: '50mb', extended: true }));
+app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
 app.use('/api', routesEvents);
 

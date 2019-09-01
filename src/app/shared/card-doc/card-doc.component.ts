@@ -1,19 +1,21 @@
+import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
-
+import { Document } from 'src/app/core/models/doc-model';
 @Component({
-    selector: 'app-card-doc',
-    templateUrl: './card-doc.component.html',
-    styleUrls: ['./card-doc.component.scss'],
+  selector: 'app-card-doc',
+  templateUrl: './card-doc.component.html',
+  styleUrls: ['./card-doc.component.scss']
 })
 export class CardDocComponent implements OnInit {
-    @Input() document: Document;
-    @Input() index: number;
+  @Input() document: Document;
+  @Input() index: number;
+  public imageUrl: SafeUrl;
 
-    constructor(private route: ActivatedRoute, private router: Router) {}
+  constructor(private route: ActivatedRoute, private router: Router, private domSanitizer: DomSanitizer) {}
 
-    ngOnInit() {
-        // this.icon = far.
-    }
+  ngOnInit() {
+    this.imageUrl = this.domSanitizer.bypassSecurityTrustUrl(this.document.imagePath);
+  }
 }

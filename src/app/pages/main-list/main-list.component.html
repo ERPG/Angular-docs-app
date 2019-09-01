@@ -1,96 +1,85 @@
 <div class="cd-main-list">
+  <div class="cd-main-list__outer">
+    <form
+      class="cd-main-list__form"
+      [formGroup]="documentsForm"
+      (ngSubmit)="documentsForm.valid && addDocument()"
+      autocomplete="off"
+    >
+      <div class="cd-main-list__inner">
+        <div class="form-group">
+          <app-label [text]="'Document title'"></app-label>
+          <app-input
+            [type]="'text'"
+            [id]="'title'"
+            [name]="'title'"
+            [control]="'title'"
+            [placeholder]="'title'"
+          ></app-input>
+        </div>
+        <div class="form-group">
+          <app-label [text]="'Document text'"></app-label>
+          <app-input
+            [type]="'text'"
+            [id]="'text'"
+            [name]="'text'"
+            [control]="'text'"
+            [placeholder]="'text'"
+          ></app-input>
+        </div>
+        <div class="form-group">
+          <app-label [text]="'Date'"></app-label>
+          <app-input
+            [type]="'date'"
+            [id]="'date'"
+            [name]="'date'"
+            [control]="'date'"
+            [placeholder]="'date'"
+          ></app-input>
+        </div>
+        <div class="form-group">
+          <img [src]="imageUrl || imagePlaceholder" style="width: 50px; height: 50px; margin: 0 auto;" />
+          <app-label [text]="'Image'"></app-label>
+          <app-input
+            [type]="'file'"
+            [id]="'imagePath'"
+            [name]="'imagePath'"
+            [control]="'imagePath'"
+            [placeholder]="'image URL'"
+            [disabled]="documentsForm.get('date').invalid"
+            (change)="onFileSelected($event)"
+          ></app-input>
+        </div>
+        <div class="form-group">
+          <app-button [type]="'submit'" [disabled]="!documentsForm.valid" [text]="'Create Document'"> </app-button>
+        </div>
+        <p>{{ errorText }}</p>
+      </div>
+    </form>
+  </div>
+  <div class="cd-main-list__list">
+    <div class="cd-main-list__outer" *ngIf="documents && documents.length">
+      <select dir="rtl" class="cd-main-list__select cd-input" name="docType" [(ngModel)]="docType">
+        <option value="" selected>All</option>
+        <option value="Simple">Simple</option>
+        <option value="Custom">Custom</option>
+        <option value="Advance">Advance</option>
+      </select>
+    </div>
     <div class="cd-main-list__outer">
-        <form
-            class="cd-main-list__form"
-            [formGroup]="documentsForm"
-            (ngSubmit)="documentsForm.valid && addDocument()"
-            autocomplete="off"
-        >
-            <div class="cd-main-list__inner">
-                <div class="form-group">
-                    <app-label [text]="'Document title'"></app-label>
-                    <app-input
-                        [type]="'text'"
-                        [id]="'title'"
-                        [name]="'title'"
-                        [control]="'title'"
-                        [placeholder]="'title'"
-                    ></app-input>
-                </div>
-                <div class="form-group">
-                    <app-label [text]="'Document text'"></app-label>
-                    <app-input
-                        [type]="'text'"
-                        [id]="'text'"
-                        [name]="'text'"
-                        [control]="'text'"
-                        [placeholder]="'text'"
-                    ></app-input>
-                </div>
-                <div class="form-group">
-                    <app-label [text]="'Date'"></app-label>
-                    <app-input
-                        [type]="'date'"
-                        [id]="'date'"
-                        [name]="'date'"
-                        [control]="'date'"
-                        [placeholder]="'date'"
-                    ></app-input>
-                </div>
-                <div class="form-group">
-                    <app-label [text]="'Load image'"></app-label>
-                    <app-input
-                        [type]="'file'"
-                        [id]="'imagePath'"
-                        [name]="'image'"
-                        [control]="'imagePath'"
-                        [placeholder]="'image'"
-                        [disabled]="documentsForm.get('date').invalid"
-                    ></app-input>
-                </div>
-                <div class="form-group">
-                    <app-button
-                        [type]="'submit'"
-                        [disabled]="!documentsForm.valid"
-                        [text]="'Create Document'"
-                    >
-                    </app-button>
-                </div>
-                <p>{{ errorText }}</p>
-            </div>
-        </form>
+      <!-- create dinamyc card components -->
+      <app-card-doc
+        *ngFor="
+          let doc of documents | paginate: { itemsPerPage: 3, currentPage: actualPage } | filter: docType;
+          let i = index
+        "
+        [document]="doc"
+        [index]="i"
+      ></app-card-doc>
+      <pagination-controls
+        *ngIf="documents && documents.length"
+        (pageChange)="actualPage = $event"
+      ></pagination-controls>
     </div>
-    <div class="cd-main-list__list">
-        <div class="cd-main-list__outer">
-            <select
-                dir="rtl"
-                class="cd-main-list__select cd-input"
-                name="docType"
-                [(ngModel)]="docType"
-            >
-                <option value="" selected>All</option>
-                <option value="Simple">Simple</option>
-                <option value="Custom">Custom</option>
-                <option value="Advance">Advance</option>
-            </select>
-        </div>
-        <div class="cd-main-list__outer">
-            <!-- create dinamyc card components -->
-            {{ documents }}
-            <!-- <app-card-doc
-                *ngFor="
-                    let doc of documents
-                        | paginate
-                            : { itemsPerPage: 3, currentPage: actualPage }
-                        | filter: docType;
-                    let i = index
-                "
-                [document]="doc"
-                [index]="i"
-            ></app-card-doc> -->
-            <pagination-controls
-                (pageChange)="actualPage = $event"
-            ></pagination-controls>
-        </div>
-    </div>
+  </div>
 </div>

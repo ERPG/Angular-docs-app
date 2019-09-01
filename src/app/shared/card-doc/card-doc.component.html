@@ -1,26 +1,19 @@
 <div class="cd-card">
-    <div class="cd-card__outer">
-        <div class="cd-card__inner">
-            <img
-                class="cd-card__image"
-                alt="Card icon"
-                [src]="document.imagePath"
-            />
-            <div class="cd-card__inner-description">
-                <h3 class="cd-card__title">{{ document.title }}</h3>
-                <span class="cd-card__type">{{ document.type }}</span>
-            </div>
-        </div>
-        <div class="rl-card__inner">
-            <a [routerLink]="['/detail', index]">
-                <app-button
-                    [type]="'button'"
-                    [disabled]="false"
-                    [text]="'Detail'"
-                ></app-button>
-            </a>
-            <!-- <p class="rl-card__text">{{ document.text }}</p> -->
-            <!-- <span class="rl-card__text">{{ document.date }}</span> -->
-        </div>
+  <div class="cd-card__outer">
+    <div class="cd-card__inner">
+      <img class="cd-card__image" alt="Card icon" [src]="document.imagePath" />
+      <div class="cd-card__inner-description">
+        <h3 class="cd-card__title">{{ document.title }}</h3>
+        <span class="cd-card__type">{{ document.type }}</span>
+      </div>
     </div>
+    <div class="rl-card__inner">
+      {{ index }}
+      <a [routerLink]="['/detail', document._id]">
+        <app-button [type]="'button'" [disabled]="false" [text]="'Detail'"></app-button>
+      </a>
+      <!-- <p class="rl-card__text">{{ document.text }}</p> -->
+      <!-- <span class="rl-card__text">{{ document.date }}</span> -->
+    </div>
+  </div>
 </div>
