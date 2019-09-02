@@ -55,16 +55,6 @@ describe('DetailComponent', () => {
 
     expect(spy).toHaveBeenCalled();
   });
-  it('Should call deleteDocument method from service', () => {
-    const service = TestBed.get(DocsApiService);
-    // Create Spy
-    const spy = spyOn(service, 'deleteDocument').and.callThrough();
-    component.deleteDocument();
-
-    fixture.detectChanges();
-
-    expect(spy).toHaveBeenCalled();
-  });
   it('Should call open method from modal service', () => {
     const service = TestBed.get(ModalService);
     // Create Spy
