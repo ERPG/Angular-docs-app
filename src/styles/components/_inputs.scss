@@ -15,3 +15,18 @@
     border-color: #c0c0c0;
   }
 }
+
+textarea {
+  border-color: #c0c0c0;
+  @include sm {
+    outline: 0;
+    border-width: 0 0 2px;
+    border-color: rgb(238, 238, 238);
+  }
+}
+
+textarea:focus {
+  @include sm {
+    border-color: #c0c0c0;
+  }
+}

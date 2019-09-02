@@ -1,7 +1,7 @@
 @import 'main.scss';
 
 .cd-main-list {
-  margin-top: 100px;
+  margin-top: 80px;
   @include sm {
     margin-top: 50px;
   }
@@ -23,15 +23,22 @@
   }
   &__inner {
     display: flex;
-    align-items: center;
     flex-wrap: wrap;
-    justify-content: space-around;
   }
   .form-group {
     margin: 10px 5px;
     @include sm {
       width: 100%;
     }
+  }
+  .form-group:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    flex: 100%;
+  }
+  .form-group:nth-child(4) {
+    display: flex;
+    flex-direction: row-reverse;
   }
   .form-group:nth-child(4) {
     display: flex;
@@ -40,7 +47,6 @@
   .form-group:nth-child(5) {
     display: flex;
     flex: 1 1 100%;
-    justify-content: center;
     margin: 20px 0;
   }
   &__select {
@@ -58,6 +64,14 @@
     }
     select:focus {
       outline: none;
+    }
+  }
+  textarea {
+    width: 380px;
+    height: 50px;
+    @include sm {
+      width: 95%;
+      height: 40px;
     }
   }
 }

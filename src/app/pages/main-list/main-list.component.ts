@@ -67,6 +67,7 @@ export class MainListComponent implements OnInit {
         },
         error => {
           console.log('ERROR');
+          this.errorText = 'Something went very worg, please try again!';
         }
       );
     }

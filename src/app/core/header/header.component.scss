@@ -3,7 +3,7 @@
 .cd-header {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   background: $color-primary;
   padding: 5px 10px;
   border: 2px solid $color-borders;
@@ -20,5 +20,6 @@
   &__logo {
     width: 5.5em;
     height: 100%;
+    margin-left: 10px;
   }
 }
